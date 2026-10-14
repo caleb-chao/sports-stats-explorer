@@ -1,4 +1,4 @@
-def add_function(a, b): 
-    return a+b 
+def multiply_function(a, b): 
+    return a * b
 
-print(add_function(95, 80))
+print(multiply_function(95, 80))
