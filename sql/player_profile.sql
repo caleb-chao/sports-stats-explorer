@@ -1,0 +1,16 @@
+-- =============================================================
+-- Player game log  🚧 TODO
+--
+-- Question: How has one player performed game by game?
+--
+-- Params:    :player_name   e.g. 'Alex Garcia'
+--
+-- Returns (one row per game, oldest first):
+--   game_date, opponent, minutes, points, rebounds, assists
+--
+-- Hints:
+--   * You need player_game_stats + players + games + teams.
+--   * The opponent is whichever of home/away is NOT the
+--     player's team -- CASE WHEN works here.
+--   * The app will draw a line chart of points over time.
+-- =============================================================

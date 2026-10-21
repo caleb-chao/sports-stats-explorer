@@ -1,0 +1,18 @@
+-- =============================================================
+-- Close games  🚧 TODO
+--
+-- Question: Which teams win close games? ("clutch" teams)
+--
+-- Params:    :margin   a game is "close" if it's decided by
+--                      this many points or fewer (e.g. 5)
+--
+-- Returns (one row per team):
+--   team, close_games, close_wins, close_losses, close_win_pct
+--
+-- Hints:
+--   * ABS(home_score - away_score) <= :margin  finds close games.
+--   * Reuse the "one row per team per game" idea from
+--     team_standings.sql (a CTE with WITH ... AS (...) helps).
+--   * Bonus: compare close_win_pct to the team's overall win_pct.
+--     Is "clutch" real, or just luck?
+-- =============================================================

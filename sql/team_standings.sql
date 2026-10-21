@@ -1,0 +1,19 @@
+-- =============================================================
+-- Team standings  🚧 TODO
+--
+-- Question: What is every team's win-loss record?
+--
+-- Returns (one row per team, best record first):
+--   team, wins, losses, win_pct, points_for, points_against, point_diff
+--
+-- Hints:
+--   * Each game has TWO teams. One trick: build a list of
+--     "one row per team per game" with UNION ALL
+--       (home team's view of the game)  UNION ALL  (away team's view)
+--     then GROUP BY team.
+--   * A win is when your score > the other team's score.
+--     SUM(CASE WHEN ... THEN 1 ELSE 0 END) counts things.
+--   * Multiply by 1.0 before dividing or SQLite does integer division.
+--
+-- When it works, the "Standings" page in the app will light up.
+-- =============================================================
