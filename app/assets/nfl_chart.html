@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{margin:0;background:#101c2d;color:#edf4ff;font:14px system-ui}#wrap{padding:16px}
+#plot{height:310px;position:relative}canvas{display:block;width:100%;height:100%}
+#tip{min-height:24px;color:#8de5d3}button,select{background:#21374e;color:white;border:1px solid #65809c;border-radius:6px;padding:7px;margin-right:8px}
+#key{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:#c8d6e8}p{margin:8px 0}
+</style></head><body><div id="wrap">
+<div><button id="reset">Reset view</button><label>Inspect bar <select id="inspect" aria-label="Inspect bar"></select></label></div>
+<p id="scale"></p><div id="plot" role="img" aria-label="Interactive three-dimensional bar chart"></div>
+<div id="tip" role="status" aria-live="polite">Hover a bar or choose a name. Drag to rotate.</div><div id="key"></div>
+</div><script>/* THREE_LIBRARY */</script><script>
+const data = /* CHART_DATA */;
+const plot=document.querySelector('#plot'), tip=document.querySelector('#tip');
+const select=document.querySelector('#inspect'), rows=data.rows;
+const max=Math.max(1,...rows.map(r=>r.value));
+document.querySelector('#scale').textContent=`${data.unit} · baseline 0 · top of scale ${max.toLocaleString()} · bars ordered left to right`;
+rows.forEach((r,i)=>{
+ const option=document.createElement('option');option.value=i;option.textContent=r.label;select.append(option);
+ const label=document.createElement('span');label.textContent=`${i+1}. ${r.label}: ${r.value.toLocaleString()}`;document.querySelector('#key').append(label);
+});
+const describe=i=>{if(rows[i])tip.textContent=`${rows[i].label} — ${rows[i].value.toLocaleString()} ${data.unit}`;};
+select.onchange=()=>describe(Number(select.value));
+try {
+ const scene=new THREE.Scene();scene.background=new THREE.Color('#101c2d');
+ const camera=new THREE.PerspectiveCamera(38,1,.1,100);camera.position.set(0,5,17);camera.lookAt(0,2,0);
+ const renderer=new THREE.WebGLRenderer({antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));plot.append(renderer.domElement);
+ scene.add(new THREE.AmbientLight(0xffffff,2));const light=new THREE.DirectionalLight(0xffffff,3);light.position.set(-3,8,6);scene.add(light);
+ const group=new THREE.Group();scene.add(group);const bars=[];const spacing=10/Math.max(rows.length,1);
+ rows.forEach((r,i)=>{
+  const height=r.value/max*5;
+  const bar=new THREE.Mesh(new THREE.BoxGeometry(spacing*.65,Math.max(height,.005),.7),new THREE.MeshStandardMaterial({color:i===0?'#63e6be':'#65a9ef',roughness:.35}));
+  bar.position.set((i-(rows.length-1)/2)*spacing,height/2,0);bar.userData.index=i;group.add(bar);bars.push(bar);
+ });
+ const grid=new THREE.GridHelper(12,12,0x64809a,0x283d54);group.add(grid);
+ const render=()=>renderer.render(scene,camera);
+ const resize=()=>{const w=plot.clientWidth;renderer.setSize(w,310);camera.aspect=w/310;camera.updateProjectionMatrix();render();};
+ const observer=new ResizeObserver(resize);observer.observe(plot);resize();
+ let drag=null;const ray=new THREE.Raycaster();
+ renderer.domElement.addEventListener('pointerdown',e=>{drag=e.clientX;renderer.domElement.setPointerCapture(e.pointerId);});
+ renderer.domElement.addEventListener('pointerup',()=>drag=null);
+ renderer.domElement.addEventListener('pointercancel',()=>drag=null);
+ renderer.domElement.addEventListener('pointermove',e=>{
+  if(drag!==null){group.rotation.y=Math.max(-.7,Math.min(.7,group.rotation.y+(e.clientX-drag)*.006));drag=e.clientX;render();}
+  const rect=renderer.domElement.getBoundingClientRect();ray.setFromCamera(new THREE.Vector2((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1),camera);
+  const hit=ray.intersectObjects(bars)[0];if(hit){select.value=hit.object.userData.index;describe(hit.object.userData.index);}
+ });
+ document.querySelector('#reset').onclick=()=>{group.rotation.y=0;render();};
+ renderer.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();tip.textContent='3D graphics unavailable. Read the values below or reload.';});
+ window.addEventListener('pagehide',()=>{observer.disconnect();scene.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});renderer.dispose();},{once:true});
+} catch(error) {tip.textContent='3D graphics unavailable in this browser. All values remain available below.';}
+</script></body></html>

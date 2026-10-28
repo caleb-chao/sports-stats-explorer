@@ -1,7 +1,7 @@
 ---
-name: Task
-about: A piece of work someone can pick up
-labels: task
+name: Task (shared club task)
+about: Add a piece of work to the club dashboard that one person can claim with /claim
+labels: ["task"]
 ---
 
 ## Goal
@@ -13,3 +13,6 @@ labels: task
 
 ## Done when
 - [ ]
+
+---
+**Want this one?** Comment `/claim` below and it's yours. Already claimed? Pick another card from the [board](https://github.com/orgs/data-science-ucsb/projects/11).

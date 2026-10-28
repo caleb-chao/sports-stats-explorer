@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Not sure which one to pick?
+    url: https://github.com/data-science-ucsb/sports-stats-explorer/blob/main/CONTRIBUTING.md#3-track-your-work-on-the-board
+    about: Find the take-home for the workshop you're on. Want to build part of the club dashboard? Comment /claim on a card on the board instead.

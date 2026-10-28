@@ -2,6 +2,11 @@
 
 A sports analytics dashboard that settles arguments with actual data.
 
+**NFL dashboard (issue #1):** Start the app and choose **NFL Overview** for
+current-season quarterback leaders, team standings, and injury reports with
+interactive Three.js charts. See [the NFL demo and end-to-end test guide](docs/NFL_DEMO.md)
+for setup, a presentation script, offline demo mode, and source limitations.
+
 We are building a website that answers real questions about a sports league, such as:
 
 - Who are the best scorers?
@@ -220,6 +225,7 @@ When it works, open a pull request. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 - **[ROADMAP.md](ROADMAP.md)** is organized by workshop. Each one says what you will learn, what you will finish, and a take-home task. Only read the section for the workshop you are on.
 - **[CONTRIBUTING.md](CONTRIBUTING.md)** explains how to keep your fork up to date and send in your work.
+- **[The project board](https://github.com/orgs/data-science-ucsb/projects/11)** shows who is working on what. CONTRIBUTING.md explains how to put your own card on it.
 
 Every time you sit down to work, start with:
 

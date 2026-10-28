@@ -21,6 +21,8 @@ Every take-home has two levels. **Pick one:**
 
 Missed a workshop or fell behind? That's fine. Each take-home works on its own, so you can skip ahead and come back later.
 
+**Tracking your work:** each take-home has a **Start your card** link. Click it, then click **Create**, and your own card appears on the [project board](https://github.com/orgs/data-science-ucsb/projects/11). It moves along by itself as you work. [CONTRIBUTING.md](CONTRIBUTING.md#3-track-your-work-on-the-board) explains how.
+
 ---
 
 ## The plan at a glance
@@ -28,7 +30,7 @@ Missed a workshop or fell behind? That's fine. Each take-home works on its own, 
 | Date | Workshop | Lead | By the end you will have | Take-home |
 |---|---|---|---|---|
 | 10/13 | 1. AI Vibecoding | Jakob | The dashboard running, and AI helping you read and write code | Write a leaderboard query with AI's help |
-| 10/20 | 2. Project Management, Kanban, and PRs | Clement | A task claimed on the board and Git set up | Make your first pull request |
+| 10/20 | 2. Project Management, Kanban, and PRs | Clement | Your first card on the board and Git set up | Make your first pull request |
 | 10/27 | 3. Data Analytics | Diego | Queries that combine tables, and a chart you made | Build the Player Profile query |
 | 11/2 | 4. Classical ML | Jakob | A model that sorts or predicts things from data | Group players into "player types" |
 | 11/9 | 5. Deployment | Clement | The dashboard online with a real link | Deploy your own copy |
@@ -47,6 +49,8 @@ Dates may shift. This table is the plan, not a promise.
 - Asked an AI to explain `sql/top_scorers.sql` line by line, and understood the answer
 
 ### Take-home 1: Write a leaderboard query with AI's help
+
+**[Start your Take-home 1 card](https://github.com/data-science-ucsb/sports-stats-explorer/issues/new?template=take-home-1.md)**, then click **Create**. It puts your own card on the [project board](https://github.com/orgs/data-science-ucsb/projects/11).
 
 The dashboard has a Top Scorers page. Make one for another stat.
 
@@ -70,6 +74,8 @@ The dashboard has a Top Scorers page. Make one for another stat.
 
 `app/Home.py` has a query written directly in Python (look for the `TODO` comment). Move it into a new file, `sql/league_summary.sql`, and change `Home.py` to use `run_query("league_summary")`, the same way the Top Scorers page does.
 
+This one is a club task: comment `/claim` on [its card](https://github.com/data-science-ucsb/sports-stats-explorer/issues/5) first, so only one person builds it.
+
 <details>
 <summary>Stuck?</summary>
 
@@ -83,13 +89,15 @@ The dashboard has a Top Scorers page. Make one for another stat.
 
 ## Workshop 2: Project Management, Kanban, and PRs (10/20, Clement)
 
-**In the workshop:** how a team splits up work. Use a Kanban board (To do, In progress, Done) to claim tasks, and use pull requests to get your work reviewed and merged.
+**In the workshop:** how a team splits up work. Use a Kanban board (To do, In progress, In review, Done) to track tasks, and use pull requests to get your work reviewed and merged.
 
 **By the end you will have:**
 - The `upstream` remote set up, so you can download new code from the club repo (see [CONTRIBUTING.md](CONTRIBUTING.md))
-- A task claimed on the project board
+- Your first card on the [project board](https://github.com/orgs/data-science-ucsb/projects/11)
 
 ### Take-home 2: Make your first pull request
+
+**[Start your Take-home 2 card](https://github.com/data-science-ucsb/sports-stats-explorer/issues/new?template=take-home-2.md)**, then click **Create**. It puts your own card on the [project board](https://github.com/orgs/data-science-ucsb/projects/11).
 
 You will practice the full Git workflow on something that can't break anything.
 
@@ -104,7 +112,7 @@ You will practice the full Git workflow on something that can't break anything.
 
 **Challenge**
 
-Open a pull request for your `top_rebounders.sql` from Take-home 1. Fill in the pull request template, and move your card to "Done" on the board when it's merged.
+Open a pull request for your `top_rebounders.sql` from Take-home 1. Fill in the pull request template, with `Closes #<your Take-home 1 card number>` in it. Your Take-home 1 card moves to **In review**, then **Done** when it's merged.
 
 <details>
 <summary>Stuck?</summary>
@@ -127,6 +135,8 @@ Open a pull request for your `top_rebounders.sql` from Take-home 1. Fill in the 
 
 ### Take-home 3: Build the Player Profile query
 
+**[Start your Take-home 3 card](https://github.com/data-science-ucsb/sports-stats-explorer/issues/new?template=take-home-3.md)**, then click **Create**. It puts your own card on the [project board](https://github.com/orgs/data-science-ucsb/projects/11).
+
 **How the workshop helps:** a player's game log needs four tables. `JOIN` connects them, and `CASE WHEN` works out who the opponent was.
 
 **Starter**
@@ -139,9 +149,9 @@ Open a pull request for your `top_rebounders.sql` from Take-home 1. Fill in the 
 
 **Challenge**
 
-Do one of these:
-- Add a line chart of points over time to the Player Profile page. Replace the `TODO` comment in `app/pages/4_Player_Profile.py` with `px.line`, copying how `1_Top_Scorers.py` draws its chart.
-- Write `sql/team_standings.sql` (hints inside). It's harder because every game involves two teams. The hints show a trick for handling that.
+Do one of these. Both are club tasks, so comment `/claim` on the card first:
+- Add a line chart of points over time to the Player Profile page. Replace the `TODO` comment in `app/pages/4_Player_Profile.py` with `px.line`, copying how `1_Top_Scorers.py` draws its chart. ([card](https://github.com/data-science-ucsb/sports-stats-explorer/issues/8))
+- Write `sql/team_standings.sql` (hints inside). It's harder because every game involves two teams. The hints show a trick for handling that. ([card](https://github.com/data-science-ucsb/sports-stats-explorer/issues/9))
 
 <details>
 <summary>Stuck?</summary>
@@ -163,6 +173,8 @@ Do one of these:
 
 ### Take-home 4: Group players into "player types"
 
+**[Start your Take-home 4 card](https://github.com/data-science-ucsb/sports-stats-explorer/issues/new?template=take-home-4.md)**, then click **Create**. It puts your own card on the [project board](https://github.com/orgs/data-science-ucsb/projects/11).
+
 Marketers group customers into segments like "bargain hunters" and "big spenders". You will do the same with players: scorers, rebounders, playmakers, and bench players.
 
 **How the workshop helps:** this is customer segmentation, with players instead of customers. Each player's per-game points, rebounds, and assists are their "features", and k-means clustering finds the groups.
@@ -178,7 +190,7 @@ Marketers group customers into segments like "bargain hunters" and "big spenders
 
 **Challenge**
 
-- Turn it into a dashboard page: a scatter plot of points vs. rebounds, colored by group (copy `1_Top_Scorers.py`)
+- Turn it into a dashboard page: a scatter plot of points vs. rebounds, colored by group (copy `1_Top_Scorers.py`). For the club dashboard, `/claim` [the card](https://github.com/data-science-ucsb/sports-stats-explorer/issues/11) first.
 - Or predict games: use `LogisticRegression` to guess whether the home team wins, from each team's average points
 
 <details>
@@ -199,6 +211,8 @@ Marketers group customers into segments like "bargain hunters" and "big spenders
 - A public link to the club's dashboard that you can share with anyone
 
 ### Take-home 5: Deploy your own copy
+
+**[Start your Take-home 5 card](https://github.com/data-science-ucsb/sports-stats-explorer/issues/new?template=take-home-5.md)**, then click **Create**. It puts your own card on the [project board](https://github.com/orgs/data-science-ucsb/projects/11).
 
 Your fork is your own version of the project, and you can put it online too. That gives you a link to show people.
 
@@ -221,7 +235,7 @@ Question ideas:
 - **Home-court advantage:** do teams really win more at home?
 - **Head-to-head:** pick two teams and show every game between them
 - **Compare two players:** show their stats side by side
-- **Close games:** write `sql/close_games.sql` (hints inside) and add a chart
+- **Close games:** write `sql/close_games.sql` (hints inside) and add a chart. Want it on the club dashboard too? `/claim` the [query](https://github.com/data-science-ucsb/sports-stats-explorer/issues/21) or [chart](https://github.com/data-science-ucsb/sports-stats-explorer/issues/22) card.
 - **Hot streaks:** find each team's longest winning streak (look up SQL "window functions")
 - **Is "clutch" real?** Compare each team's close-game win percentage with its overall win percentage
 
@@ -242,6 +256,8 @@ Question ideas:
 - A short pitch for this project that you can say out loud
 
 ### Take-home 6: Write your project pitch
+
+**[Start your Take-home 6 card](https://github.com/data-science-ucsb/sports-stats-explorer/issues/new?template=take-home-6.md)**, then click **Create**. It puts your own card on the [project board](https://github.com/orgs/data-science-ucsb/projects/11).
 
 **How the workshop helps:** you already built the thing. This is about turning it into a story: the question, what you did, and what you found.
 
@@ -266,7 +282,7 @@ Open a pull request with it.
 
 ## After the workshops
 
-These are bigger group projects for anyone who wants to keep going. You don't need to look at them until the workshops are done.
+These are bigger group projects for anyone who wants to keep going. You don't need to look at them until the workshops are done. Each one is a card on the [project board](https://github.com/orgs/data-science-ucsb/projects/11) labeled `after-workshops`. Comment `/claim` to join.
 
 <details>
 <summary>Use real data instead of the fake league</summary>
@@ -293,7 +309,7 @@ These are bigger group projects for anyone who wants to keep going. You don't ne
 
 ## Tips for working together
 
-- **Say what you're working on** by claiming a card on the project board (or a GitHub issue), so two people don't build the same page.
+- **Say what you're working on** by commenting `/claim` on a club task card on the [project board](https://github.com/orgs/data-science-ucsb/projects/11), so two people don't build the same page.
 - **Pull before you start:** `git pull upstream main`. That way you're building on everyone's latest work.
 - **Keep pull requests small.** One task per pull request gets reviewed faster.
 - **Take-homes are practice.** Leads will merge one working version of each task and give feedback on the rest. Your work counts either way.

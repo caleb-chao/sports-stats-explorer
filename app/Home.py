@@ -16,6 +16,7 @@ ensure_database()
 
 st.title("🏀 Sports Stats Explorer")
 st.write("Settling sports arguments with actual data. Pick a question from the sidebar.")
+st.page_link("pages/5_NFL_Overview.py", label="NFL Overview — live stats and Three.js charts", icon="🏈")
 
 # A few headline numbers, straight from SQL.
 # TODO (good first task): move this query into sql/league_summary.sql and use run_query.
